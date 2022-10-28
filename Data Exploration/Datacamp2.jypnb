@@ -1,0 +1,98 @@
+# %%
+import csv
+# import pandas as pd
+# json_df = pd.read_json('input.json', encoding='UTF-8')
+# json_df
+
+# %%
+
+filename = 'C:/Users/arnav/Desktop/datacamp/office_supplies.csv'
+
+
+# %%
+file = open('C:/Users/arnav/Desktop/datacamp/office_supplies.csv')
+
+type(file)
+
+# %%
+print(file)
+
+# %%
+# initializing the titles and rows list
+fields = []
+rows = []
+ 
+# reading csv file
+with open(filename, 'r',encoding='utf-8') as csvfile:
+    # creating a csv reader object
+    csvreader = csv.reader(csvfile)
+     
+    # extracting field names through first row
+    fields = next(csvreader)
+ 
+    # extracting each data row one by one
+    for row in csvreader:
+        rows.append(row)
+ 
+    # get total number of rows
+    print("Total no. of rows: %d"%(csvreader.line_num))
+ 
+# printing the field names
+print('Field names are:' + ', '.join(field for field in fields))
+ 
+#  printing first 5 rows
+print('\nFirst 5 rows are:\n')
+for row in rows[:5]:
+    # parsing each column of a row
+    for col in row:
+        print("%10s"%col,end=" "),
+    print('\n')
+
+# %%
+# Python program to illustrate
+# creating a data frame using CSV files
+
+# import pandas module
+import pandas as pd
+
+# creating a data frame
+df = pd.read_csv(filename)
+print(df.head())
+
+
+# %%
+import pandas as pd
+import gspread
+import df2gspread as d2g
+
+# %%
+df.info()
+
+# %%
+df.describe()
+
+# %%
+df.head()
+
+# %%
+#popularity of product by region best seller 
+
+# %%
+#popularity of product by region worst seller 
+
+# %%
+#pattern by region 
+
+# %%
+#unsold product in each region
+
+# %%
+#popularity of product by region best seller 
+
+# %%
+df.to_clipboard(sep=',')  
+
+# %%
+
+
+
